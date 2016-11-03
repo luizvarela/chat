@@ -1,0 +1,9 @@
+<h1>New Topic</h1>
+
+<%= form_for @conn, "/topic", [as: :topic, class: "ui form"], fn(f) -> %>
+  <div class="field">
+    <label>Topic name</label>
+    <%= text_input f, :name %>
+  </div>
+  <%= submit "Create Topic", class: "ui button" %>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="ui comments">
+  <h3>
+    <%= if @id == "lobby" do %>
+      Common Lobby
+    <% else %>
+      Room: <%= String.slice(@id, 0..8) %>
+    <% end %>
+  </h3>
+
+  <div data-room="rooms:<%= @id %>" id="messages"></div>
+
+  <div class="ui form">
+  <div class="field">
+    <div class="ui fluid input">
+      <textarea id="input" placeholder= "Type your message here and hit enter..."></textarea>
+    </div>
+  </div>
+  </div>
+</div>
+
+<style type="text/css" media="screen">
+  #messages {
+    min-height: 300px;
+  }
+</style>
