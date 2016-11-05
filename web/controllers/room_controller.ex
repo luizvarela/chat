@@ -1,12 +1,23 @@
 defmodule Chat.RoomController do
   use Chat.Web, :controller
 
-  def show(conn, %{"id" => id}) do
-    render conn, :show, id: id
+  def create(conn, params) do
+    roomname = params["room"]["roomname"]
+
+    conn
+      |> put_session(:username, params["room"]["username"])
+      |> redirect(to: "/rooms/#{roomname}")
+  end
+
+  def show(conn, params) do
+    conn
+      |> assign(:username, get_session(conn, :username))
+      |> assign(:room, params["id"])
+      |> render(:show)
   end
 
   def private(conn, _params) do
-    redirect conn, to: "/room/#{random_room_name}"
+    redirect conn, to: "/rooms/#{random_room_name}"
   end
 
   defp random_room_name do

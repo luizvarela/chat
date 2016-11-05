@@ -21,8 +21,8 @@ defmodule Chat.Router do
     get "/topic/new", TopicController, :new
     post "/topic", TopicController, :create
 
-    get "/room/private", RoomController, :private
-    get "/room/:id", RoomController, :show
+    get "/rooms/private", RoomController, :private
+    resources "rooms", RoomController, [:create, :show]
   end
 
   # Other scopes may use custom stacks.

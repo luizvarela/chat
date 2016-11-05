@@ -22,7 +22,7 @@
                 <a href="/room/<%= id %>" class="item"><%= name %></a>
               <% end) %>
             </div>
-            <a href="/room/private">Private Room</a>
+            <a href="/rooms/private">Private Room</a>
 
             <a href="/topic/new">New Topic</a>
           </div>

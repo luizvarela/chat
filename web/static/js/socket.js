@@ -5,14 +5,10 @@
 // and connect at the socket path in "lib/my_app/endpoint.ex":
 import {Socket} from "phoenix"
 
-let username = localStorage.getItem("username")
+let messageContainer = document.getElementById("messages")
+const dataset = messageContainer.dataset
 
-if (!username) {
-  username = prompt("Type your name")
-  localStorage.setItem("username", username)
-}
-
-let socket = new Socket("/socket", {params: {username: username}})
+let socket = new Socket("/socket", {params: {username: dataset.username}})
 
 socket.connect()
 

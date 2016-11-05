@@ -7,6 +7,6 @@ defmodule Chat.TopicController do
 
   def create(conn, %{"topic" => %{"name" => name}}) do
     Chat.Topics.add_topic(name)
-    redirect conn, to: "/room/#{name}"
+    redirect conn, to: "/rooms/#{name}"
   end
 end
